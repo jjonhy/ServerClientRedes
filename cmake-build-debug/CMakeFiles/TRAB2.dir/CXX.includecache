@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/conta/Desktop/FACUL/REDES/TRAB2/main.cpp
+iostream
+-
+string
+-
+cstring
+-
+sys/socket.h
+-
+arpa/inet.h
+-
+unistd.h
+-
+
