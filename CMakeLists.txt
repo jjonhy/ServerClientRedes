@@ -3,4 +3,4 @@ project(TRAB2)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(TRAB2 server.cpp)
+add_executable(TRAB2 server_modulo1.cpp)
