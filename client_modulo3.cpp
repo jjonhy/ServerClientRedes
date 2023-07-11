@@ -135,10 +135,19 @@ int main() {
         if (!sentNicknameCommand && sentConnectCommand) {
             //Check if user wants to add a nickname
             if(userInput.rfind(NICKNAME_COMMAND, 0) == 0){
+                std::string newNickname = userInput.substr(10);
+                
+                if(newNickname.length() <= 50)
+                {
                 sentNicknameCommand = true; 
                 std::cout << "Nickname changed, you can now join a channel with /join" << std::endl;
                 sendMessage(serverSocket, userInput);
                 continue;
+                }else{
+                    std::cout << "The nickname is too long, maximum of 50 characters." << std::endl;
+                    continue;
+                }
+
             }else {
                 std::cout << "Please enter the /nickname command to register." << std::endl;
                 continue;
@@ -148,9 +157,18 @@ int main() {
         //Check if the user has joined a channel
         if (!joinedChannel && sentNicknameCommand && sentConnectCommand) {
             if(userInput.rfind(JOIN_COMMAND, 0) == 0){
+
+                std::string channelName = userInput.substr(6);
+                if((channelName.rfind("&", 0) == 0 || channelName.rfind("#", 0) == 0) && channelName.rfind(" ") == -1 && channelName.find(","))
+                {
                 joinedChannel = true; 
                 sendMessage(serverSocket, userInput);
                 continue;
+                }else{
+                    std::cout << "Invalid channel name. Start with & or #" << std::endl;
+                    continue;
+                }
+
             }else {
                 std::cout << "Please join a channel." << std::endl;
                 continue;

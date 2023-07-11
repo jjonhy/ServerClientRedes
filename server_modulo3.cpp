@@ -245,8 +245,8 @@ void clientThread(int clientSocket) {
                 int index =  flag - clientNames.begin();
 
                 //Pegar o ip aqui, não do cliente que mandou a mensagem mas do alvo userName, que pegamos o  index no vetor com os ID's
-                int ip = 0;
-                std::string userMessage = "User " + userName + " is on IP:" + std::to_string(ip);
+                std::string ip = "127.0.0.1";
+                std::string userMessage = "User " + userName + " is on IP: " + ip;
                 sendMessage(clientSocket, userMessage);
 
                 continue;
