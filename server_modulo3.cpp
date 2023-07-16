@@ -233,7 +233,7 @@ void clientThread(int clientSocket) {
         if(receivedMessage.rfind(WHOIS_COMMAND, 0) == 0){
             //Checks if he is administrator
             if(isChannelOwner){
-                std::string userName = receivedMessage.substr(6);
+                std::string userName = receivedMessage.substr(7);
                 
                 //Searches for the user in all the clients
                 auto flag = find(clientNames.begin(), clientNames.end(), userName);
